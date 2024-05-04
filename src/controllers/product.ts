@@ -87,7 +87,54 @@ export const addProduct = async (req: Request, resp: Response) => {
         })
     }
 };
-export const updateProduct = (req: Request, resp: Response) => { };
+export const updateProduct = async (req: Request, resp: Response) => { 
+    try {
+        const productPayload  = req.body.product;
+
+        const product = await db.product.findUnique({
+            where: {
+                id: parseInt(productPayload.id),
+            }
+        })
+
+        if (!product) {
+            return resp.status(400).json({
+                success: false,
+                error: `No product found with id ${productPayload.id}`
+            })
+        }
+
+        const updatedProduct = await db.product.update({
+            where:{
+                id: productPayload.id,
+            },
+            data:{
+                ...productPayload,
+            }
+        });
+
+        resp.status(200).json({
+            success: false,
+            updatedProduct,
+            message:`Successfully updated product.`
+        });
+
+
+    } catch (error: any) {
+        resp.status(500).json({
+            success: false,
+            error: `Unable to update product due ${error.message}`
+        })
+    }
+};
+
+export const updateQuantity = async (req: Request, resp: Response) => { 
+    try {
+        
+    } catch (error) {
+        
+    }
+};
 
 export const removeProduct = async (req: Request, resp: Response) => {
     try {

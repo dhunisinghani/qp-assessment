@@ -2,7 +2,7 @@ import { Router, Request, Response, NextFunction } from 'express';
 import { body, param, validationResult } from 'express-validator';
 import auth from '../middlewares/auth';
 import isAdmin from '../middlewares/isAdmin';
-import { getProducts, getProductById, addProduct, updateProduct, removeProduct } from "../controllers/product";
+import { getProducts, getProductById, addProduct, updateProduct, updateQuantity, removeProduct } from "../controllers/product";
 
 const productRouter = Router();
 
@@ -44,8 +44,9 @@ productRouter.get('/:id', auth, validateproductId ,getProductById);
 
 productRouter.post('/add', auth, isAdmin, validateproductInput, addProduct);
 
-productRouter.put('/update', auth, isAdmin, updateProduct);
+productRouter.patch('/', auth, isAdmin,  updateProduct);
 
+productRouter.patch('/updateQuantity/:id', auth, isAdmin, validateproductId, updateQuantity)
 productRouter.delete('/remove/:id', auth, isAdmin, validateproductId ,removeProduct);
 
 export default productRouter;
