@@ -46,7 +46,8 @@ productRouter.post('/add', auth, isAdmin, validateproductInput, addProduct);
 
 productRouter.patch('/', auth, isAdmin,  updateProduct);
 
-productRouter.patch('/updateQuantity/:id', auth, isAdmin, validateproductId, updateQuantity)
+productRouter.patch('/updateQuantity', auth, isAdmin, validateproductId, updateQuantity);
+
 productRouter.delete('/remove/:id', auth, isAdmin, validateproductId ,removeProduct);
 
 export default productRouter;

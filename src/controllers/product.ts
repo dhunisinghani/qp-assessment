@@ -16,7 +16,7 @@ export const getProducts = async (req: Request, resp: Response) => {
     } catch (error: any) {
         resp.status(500).json({
             success: false,
-            error: error.message
+            error: `Unable to get products due to ${error.message}`
         })
     }
 };
@@ -49,8 +49,11 @@ export const getProductById = async (req: Request, resp: Response) => {
             success: true,
             product
         })
-    } catch (error) {
-        resp.status(400)
+    } catch (error: any) {
+        resp.status(400).json({
+            success: false,
+            error: `Unable to get product due to ${error.message}`
+        })
     }
 };
 
@@ -83,10 +86,11 @@ export const addProduct = async (req: Request, resp: Response) => {
     } catch (error: any) {
         resp.status(500).json({
             success: false,
-            error: error.message
+            error: `Unable to add product due to${error.message}`
         })
     }
 };
+
 export const updateProduct = async (req: Request, resp: Response) => { 
     try {
         const productPayload  = req.body.product;
@@ -130,9 +134,42 @@ export const updateProduct = async (req: Request, resp: Response) => {
 
 export const updateQuantity = async (req: Request, resp: Response) => { 
     try {
-        
-    } catch (error) {
-        
+        const {id, stock}: {id: number, stock: number}  = req.body;
+        console.log({id, stock})
+        const product = await db.product.findUnique({
+            where: {
+                id,
+            }
+        })
+
+        if (!product) {
+            return resp.status(400).json({
+                success: false,
+                error: `No product found with id ${id}`
+            })
+        }
+
+        const updatedProduct = await db.product.update({
+            where:{
+                id,
+            },
+            data:{
+                stock,
+            }
+        });
+
+        resp.status(200).json({
+            success: false,
+            updatedProduct,
+            message:`Successfully updated product quantity.`
+        });
+
+
+    } catch (error: any) {
+        resp.status(500).json({
+            success: false,
+            error: `Unable to update product quantity due ${error.message}`
+        })
     }
 };
 
