@@ -1,6 +1,8 @@
 import jwt from 'jsonwebtoken';
 import { Request, Response, NextFunction } from 'express';
-const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY || "my_liitle_secret";
+const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
+
+
 const auth = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const auth = req.headers.authorization;

@@ -5,7 +5,7 @@ import bcrypt from 'bcrypt';
 
 import db from '../database/db';
 
-const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY || "my_little_secret";
+const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
 
 export const register = async (req: Request, resp: Response) => {
     try {
@@ -65,8 +65,6 @@ export const login = async (req: Request, resp: Response) => {
         }
 
         const hashedPassword = await bcrypt.hash(password, 5);
-
-        console.log({user, hashedPassword})
 
         // Check password
         if (!await bcrypt.compare(password, user.password)) {
