@@ -1,7 +1,8 @@
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 import userRouter from "./routes/user";
-import productRouter from "./routes/product"
+import productRouter from "./routes/product";
+import orderRouter from "./routes/order"
 
 dotenv.config();
 
@@ -10,6 +11,7 @@ const app: Express = express();
 app.use(express.json());
 app.use("/users", userRouter);
 app.use("/products", productRouter);
+app.use("/orders", orderRouter);
 
 const port = process.env.PORT;
 

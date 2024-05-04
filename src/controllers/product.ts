@@ -197,7 +197,7 @@ export const removeProduct = async (req: Request, resp: Response) => {
             })
         }
 
-        db.product.delete({
+       await db.product.delete({
             where: {
                 id: parseInt(id)
             }
