@@ -12,13 +12,31 @@ export const getProducts = (req: Request, resp: Response) => {
     }
 };
 export const getProductById = (req: Request, resp: Response) => { };
-export const addProduct = (req: Request, resp: Response) => { 
-    try {
-        console.log(`Add product`, req.body)
+export const addProduct = async (req: Request, resp: Response) => { 
 
+    const errors = validationResult(req)
+
+    if (!errors.isEmpty()) {
+        return resp.status(400).json({ success: false, errors: errors.array() });
+    }
+
+    try {
+        const { name, price, category, weight, measurement, stock} = req.body;
+
+        const product = await db.product.create({
+            data: {
+                name,
+                price,
+                category,
+                weight,
+                measurement,
+                stock,
+            }
+        })
         resp.status(200).json({
             success: true,
-            ...req.body
+            product,
+            message: `Successfully added product ${product.name}`
         })
     } catch (error: any) {
         resp.status(500).json({
