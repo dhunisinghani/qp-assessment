@@ -1,13 +1,15 @@
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
-import user from "./routes/user";
+import userRouter from "./routes/user";
+import productRouter from "./routes/product"
 
 dotenv.config();
 
 const app: Express = express();
 
 app.use(express.json());
-app.use("/user", user);
+app.use("/users", userRouter);
+app.use("/products", productRouter);
 
 const port = process.env.PORT;
 

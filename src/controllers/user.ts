@@ -5,7 +5,7 @@ import bcrypt from 'bcrypt';
 
 import db from '../database/db';
 
-const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
+const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY || "my_little_secret";
 
 export const register = async (req: Request, resp: Response) => {
     try {
