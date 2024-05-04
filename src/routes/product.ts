@@ -1,5 +1,5 @@
 import { Router, Request, Response, NextFunction } from 'express';
-import { body, validationResult } from 'express-validator';
+import { body, param, validationResult } from 'express-validator';
 import auth from '../middlewares/auth';
 import isAdmin from '../middlewares/isAdmin';
 import { getProducts, getProductById, addProduct, updateProduct, removeProduct } from "../controllers/product";
@@ -31,14 +31,21 @@ const validateproductInput = [
 
 ];
 
+// Validation Param has Product id
+
+const validateproductId = [
+    param("id").notEmpty().withMessage("Product Id is required")
+]
+
+
 productRouter.get('/', auth, getProducts);
 
-productRouter.get('/:id', auth, getProductById);
+productRouter.get('/:id', auth, validateproductId ,getProductById);
 
 productRouter.post('/add', auth, isAdmin, validateproductInput, addProduct);
 
 productRouter.put('/update', auth, isAdmin, updateProduct);
 
-productRouter.delete('/remove', auth, isAdmin, removeProduct);
+productRouter.delete('/remove/:id', auth, isAdmin, validateproductId ,removeProduct);
 
 export default productRouter;
