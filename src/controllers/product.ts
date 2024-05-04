@@ -4,14 +4,24 @@ import { body, validationResult } from 'express-validator';
 import db from '../database/db';
 
 
-export const getProducts = (req: Request, resp: Response) => { 
+export const getProducts = async (req: Request, resp: Response) => { 
     try {
-        
+        const products = await db.product.findMany();
+
+        resp.status(200).json({
+            success: true,
+            products,
+        })
+
     } catch (error: any) {
-        
+        resp.status(500).json({
+            success: false,
+            error: error.message
+        })
     }
 };
 export const getProductById = (req: Request, resp: Response) => { };
+
 export const addProduct = async (req: Request, resp: Response) => { 
 
     const errors = validationResult(req)
