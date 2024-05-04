@@ -1,0 +1,206 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Grocery App",
+    "collectionId": "b9bfb1f6-e909-442c-83c8-08d9a20baa68",
+    "dateExported": "2024-05-04T16:06:03.105Z",
+    "version": "1.2",
+    "folders": [
+        {
+            "_id": "ad7c83cf-eed4-48bc-a543-33cc87584025",
+            "name": "Authentication",
+            "containerId": "",
+            "created": "2024-05-04T15:29:16.481Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "5e472fc0-7ad4-4c7a-a7fb-7fd8f60626e3",
+            "name": "Product",
+            "containerId": "",
+            "created": "2024-05-04T15:31:32.309Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "42aacac4-5abe-4238-a673-87ba13c62438",
+            "name": "Orders",
+            "containerId": "",
+            "created": "2024-05-04T15:50:42.187Z",
+            "sortNum": 30000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "f0eea121-a5f9-4e7e-b7c4-efc817dccefc",
+            "colId": "b9bfb1f6-e909-442c-83c8-08d9a20baa68",
+            "containerId": "ad7c83cf-eed4-48bc-a543-33cc87584025",
+            "name": "Register User",
+            "url": "http://localhost:3000/users/register",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-05-04T15:29:32.819Z",
+            "modified": "2024-05-04T15:30:20.316Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n            \"firstName\": \"Kartik\",\n            \"lastName\": \"Dhunisinghani\",\n            \"email\": \"kartikdhunisinghani@gmail.com\",\n            \"password\":\"Nagpur@123\",\n            \"role\": \"ADMIN\",\n            \"phone\": \"9850311717\"\n        }",
+                "form": []
+            }
+        },
+        {
+            "_id": "a3acb1ca-8a88-493e-95c6-ba534f48f6c1",
+            "colId": "b9bfb1f6-e909-442c-83c8-08d9a20baa68",
+            "containerId": "ad7c83cf-eed4-48bc-a543-33cc87584025",
+            "name": "Login User",
+            "url": "http://localhost:3000/users/login",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-05-04T15:30:36.829Z",
+            "modified": "2024-05-04T15:31:04.880Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"kartikdhunisinghani@gmail.com\",\n  \"password\": \"Nagpur@123\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "22664c19-74f7-4417-925a-fe00174d33f2",
+            "colId": "b9bfb1f6-e909-442c-83c8-08d9a20baa68",
+            "containerId": "5e472fc0-7ad4-4c7a-a7fb-7fd8f60626e3",
+            "name": "Add Product",
+            "url": "http://localhost:3000/products/add",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-05-04T15:31:45.132Z",
+            "modified": "2024-05-04T15:49:02.674Z",
+            "headers": [
+                {
+                    "name": "authorization",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2FydGlrZGh1bmlzaW5naGFuaUBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3MTQ4MzY1MjAsImV4cCI6MTcxNDg0MDEyMH0.eFlIUiiXk5vcEI3m5F0LER7OAvu7R3XZ58-OWxB1ZuQ"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"ghee\",\n  \"price\": 500,\n  \"stock\": 100,\n  \"category\":\"dairy\",\n  \"weight\": 500,\n  \"measurement\": \"gram\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "7ba03d20-e0fb-4454-b6b4-b9d1526ff885",
+            "colId": "b9bfb1f6-e909-442c-83c8-08d9a20baa68",
+            "containerId": "5e472fc0-7ad4-4c7a-a7fb-7fd8f60626e3",
+            "name": "Update Quantity",
+            "url": "http://localhost:3000/products/updateQuantity",
+            "method": "PATCH",
+            "sortNum": 40000,
+            "created": "2024-05-04T15:36:45.228Z",
+            "modified": "2024-05-04T15:38:57.578Z",
+            "headers": [
+                {
+                    "name": "authorization",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2FydGlrZGh1bmlzaW5naGFuaUBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3MTQ4MzY1MjAsImV4cCI6MTcxNDg0MDEyMH0.eFlIUiiXk5vcEI3m5F0LER7OAvu7R3XZ58-OWxB1ZuQ"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": 2,\n  \"stock\": 50\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "d5d10290-566f-41b9-8f15-d8bebc277c1a",
+            "colId": "b9bfb1f6-e909-442c-83c8-08d9a20baa68",
+            "containerId": "5e472fc0-7ad4-4c7a-a7fb-7fd8f60626e3",
+            "name": "Remove Product",
+            "url": "http://localhost:3000/products/remove/2",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2024-05-04T15:39:25.016Z",
+            "modified": "2024-05-04T15:40:25.204Z",
+            "headers": [
+                {
+                    "name": "authorization",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2FydGlrZGh1bmlzaW5naGFuaUBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3MTQ4MzY1MjAsImV4cCI6MTcxNDg0MDEyMH0.eFlIUiiXk5vcEI3m5F0LER7OAvu7R3XZ58-OWxB1ZuQ"
+                }
+            ]
+        },
+        {
+            "_id": "8cac9a17-eeee-450b-8d2e-28ffe9ecef89",
+            "colId": "b9bfb1f6-e909-442c-83c8-08d9a20baa68",
+            "containerId": "5e472fc0-7ad4-4c7a-a7fb-7fd8f60626e3",
+            "name": "Update Product Fields",
+            "url": "http://localhost:3000/products",
+            "method": "PATCH",
+            "sortNum": 60000,
+            "created": "2024-05-04T15:43:20.881Z",
+            "modified": "2024-05-04T15:45:42.037Z",
+            "headers": [
+                {
+                    "name": "authorization",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2FydGlrZGh1bmlzaW5naGFuaUBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3MTQ4MzY1MjAsImV4cCI6MTcxNDg0MDEyMH0.eFlIUiiXk5vcEI3m5F0LER7OAvu7R3XZ58-OWxB1ZuQ"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"product\": {\n    \"id\": 1,\n    \"name\": \"desi ghee\",\n    \"price\": 450\n  }\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "7a5846e4-beed-4165-a2aa-63ba39a59963",
+            "colId": "b9bfb1f6-e909-442c-83c8-08d9a20baa68",
+            "containerId": "5e472fc0-7ad4-4c7a-a7fb-7fd8f60626e3",
+            "name": "Get Product by id",
+            "url": "http://localhost:3000/products/2",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2024-05-04T15:46:02.955Z",
+            "modified": "2024-05-04T15:46:48.841Z",
+            "headers": [
+                {
+                    "name": "authorization",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2FydGlrZGh1bmlzaW5naGFuaUBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3MTQ4MzY1MjAsImV4cCI6MTcxNDg0MDEyMH0.eFlIUiiXk5vcEI3m5F0LER7OAvu7R3XZ58-OWxB1ZuQ"
+                }
+            ]
+        },
+        {
+            "_id": "c779ecbb-0ee3-4bf9-90f7-e4447f420ede",
+            "colId": "b9bfb1f6-e909-442c-83c8-08d9a20baa68",
+            "containerId": "5e472fc0-7ad4-4c7a-a7fb-7fd8f60626e3",
+            "name": "Get Products",
+            "url": "http://localhost:3000/products",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2024-05-04T15:47:06.332Z",
+            "modified": "2024-05-04T15:47:29.220Z",
+            "headers": [
+                {
+                    "name": "authorization",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2FydGlrZGh1bmlzaW5naGFuaUBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3MTQ4MzY1MjAsImV4cCI6MTcxNDg0MDEyMH0.eFlIUiiXk5vcEI3m5F0LER7OAvu7R3XZ58-OWxB1ZuQ"
+                }
+            ]
+        },
+        {
+            "_id": "c201cf81-7515-4110-879b-476e642bacee",
+            "colId": "b9bfb1f6-e909-442c-83c8-08d9a20baa68",
+            "containerId": "42aacac4-5abe-4238-a673-87ba13c62438",
+            "name": "Order Multiple",
+            "url": "http://localhost:3000/orders",
+            "method": "POST",
+            "sortNum": 90000,
+            "created": "2024-05-04T16:03:27.831Z",
+            "modified": "2024-05-04T16:04:29.316Z",
+            "headers": [
+                {
+                    "name": "authorization",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2FydGlrZGh1bmlzaW5naGFuaUBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3MTQ4MzY1MjAsImV4cCI6MTcxNDg0MDEyMH0.eFlIUiiXk5vcEI3m5F0LER7OAvu7R3XZ58-OWxB1ZuQ"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"products\": [\n  { \"productId\": 1, \"quantity\": 2}\n  ]\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "SUNfb3jByj3KqnrvFaFs4uyy2LV8es478FxTFFfat0xpR8J4oNDMKmSNVNBqPkw9QY7fKr_YfA4M7M91tsrv9g"
+}
