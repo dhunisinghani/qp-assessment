@@ -10,7 +10,7 @@ Start Server in develop mode
 $ npm run dev   #develop mode
 ```
 
-Start server in production
+Start server in production mode
 
 ```
 $ npm run start #production mode
